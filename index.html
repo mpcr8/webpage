@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="MPCR">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <title>MPCR webpage</title>
+</head>
+
+<body>
+    <div id="navbar">
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+    <div id="main">
+        <header>
+            <div>
+                <h2>Welcome to my website</h2>
+                <p>about the website and more information</p>
+                <p><img src="http://placehold.it/1250x350" /></p>
+            </div>
+        </header>
+        <section id="home">
+            <article>
+                <h2>Home</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean <a href="#">Aenean commodo</a> commodo ligula eget dolor.</p>
+
+                <p>Aenean massa. Cum sociis natoque penatibus et <a href="#">Aenean commodo</a> magnis dis parturient montes, nascetur ridiculus mus.</p>
+
+                <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.</p>
+            </article>
+        </section>
+        <section id="about">
+            <article>
+                <h2>About</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <a href="#">Aenean commodo</a> ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
+
+                <p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate <a href="#">Aenean commodo</a>eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,</p>
+            </article>
+        </section>
+        <section id="products">
+            <article>
+                <h2>Products</h2>
+                <ul>
+                    <li><img src="http://placehold.it/350x150" />Blah blah blahy about product</li>
+                    <li><img src="http://placehold.it/350x150" />bout gffggfgfgfgfthe product</li>
+                    <li><img src="http://placehold.it/350x150" />bout the product</li>
+                    <li><img src="http://placehold.it/350x150" />bout the product</li>
+                </ul>
+            </article>
+        </section>
+        <section id="contact">
+            <article>
+
+                <div>
+                    <form>
+                        <div class="row">
+                            <h2>Contact</h2> </div>
+                        <div class="row">
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" placeholder="enter name">
+                        </div>
+                        <div class="row">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" placeholder="enter email">
+                        </div>
+                        <div class="row">
+                            <button type="submit">Send Email</button>
+                        </div>
+                    </form>
+                </div>
+            </article>
+        </section>
+        <footer>Copyright info @ MPCR
+            <div>
+
+                <a hrer="#" class="social"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                <a hrer="#" class="social"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a hrer="#" class="social"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a>
+                <a hrer="#" class="social"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+            </div>
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            $('nav a').on("click", function (event) {
+                event.preventDefault();
+                var secID = $(this).attr('href');
+                var secTop = $(secID).offset().top;
+                $('html, body').animate({
+                    scrollTop: secTop
+                }, 1000);
+            });
+
+            $(window).scroll(function () {
+                var scrollPosition = $(window).scrollTop();
+                if (scrollPosition >= 100) {
+
+                    $('#main section').each(function (x) {
+                        if ($(this).position().top <= scrollPosition) {
+                            $('nav a.active').removeClass('active');
+                            $('nav a').eq(x).addClass('active');
+
+                        }
+                        console.log(scrollPosition + ' ' + $(this).position().top);
+                    })
+                }
+
+            })
+
+        });
+    </script>
+</body>
+
+</html>
